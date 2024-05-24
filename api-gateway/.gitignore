@@ -4,8 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-Migrations/
-.env.test
+
 
 ### STS ###
 .apt_generated
@@ -17,7 +16,7 @@ Migrations/
 .sts4-cache
 
 # User-specific files
-*.env
+#*.env
 
 ### IntelliJ IDEA ###
 .idea
