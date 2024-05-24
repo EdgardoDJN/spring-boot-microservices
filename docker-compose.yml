@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=microservices'
+      - 'POSTGRES_PASSWORD=1436'
+      - 'POSTGRES_USER=root'
+    ports:
+      - '5432'

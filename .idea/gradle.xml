@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="D:/Documentos/JavaYSO/JavaSpring/auth0-java-microservices-examples/spring-boot-gateway-mvc" />
+        <option name="modules">
+          <set>
+            <option value="D:/Documentos/JavaYSO/JavaSpring/auth0-java-microservices-examples/spring-boot-gateway-mvc" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
