@@ -4,10 +4,18 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="D:/Documentos/JavaYSO/JavaSpring/auth0-java-microservices-examples/spring-boot-gateway-mvc" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/booking-service" />
         <option name="modules">
           <set>
-            <option value="D:/Documentos/JavaYSO/JavaSpring/auth0-java-microservices-examples/spring-boot-gateway-mvc" />
+            <option value="$PROJECT_DIR$/booking-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/car-inventory" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/car-inventory" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,5 +1,6 @@
 package com.example.carservice.controller;
 
+import io.micrometer.core.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
@@ -12,6 +13,7 @@ import java.security.Principal;
 public class HomeController {
     private final static Logger log = LoggerFactory.getLogger(HomeController.class);
 
+    @Timed(value = "getClaims.time", description = "Time taken to return Claim")
     @GetMapping("/home")
     public String home(Principal principal) {
         var username = principal.getName();

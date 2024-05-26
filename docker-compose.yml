@@ -1,9 +1,49 @@
 services:
-  postgres:
+  post:
     image: 'postgres:latest'
     environment:
-      - 'POSTGRES_DB=microservices'
-      - 'POSTGRES_PASSWORD=1436'
-      - 'POSTGRES_USER=root'
+      POSTGRES_DB: carService
+      POSTGRES_PASSWORD: sample
+      POSTGRES_USER: postgres
     ports:
-      - '5432'
+      - "5434:5432"
+
+
+
+
+
+
+
+#services:
+#  carInventory:
+#    image: 'postgres:latest'
+#    environment:
+#      POSTGRES_DB: CarInventory
+#      POSTGRES_PASSWORD: sample
+#      POSTGRES_USER: postgres
+#   ports:
+#      - "5434:5434"
+
+#  carService:
+#    image: 'postgres:latest'
+#    environment:
+#      POSTGRES_DB: CarService
+#      POSTGRES_PASSWORD: sample
+#      POSTGRES_USER: postgres
+#    ports:
+#      - "5432:5432"
+
+
+
+
+#  prometheus:
+#    image: 'prom/prometheus:latest'
+#    container_name: 'distracted_hertz'
+#    restart: always
+#    ports:
+#      - "9090:9090"
+#    volumes:
+#      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+#    depends_on:
+#      - carInventory
+#      - carService

@@ -32,14 +32,32 @@ import static org.springframework.cloud.gateway.server.mvc.predicate.GatewayRequ
 @SpringBootApplication
 public class ApiGatewayApplication {
 
-    @Bean
+    /*@Bean
     public RouterFunction<ServerResponse> gatewayRouterFunctionsLoadBalancer() {
-        return route("car-service")
+        return route("carService")
                 .route(path("/home/**"), http())
-                .filter(lb("car-service"))
+                .filter(lb("carService"))
                 .filter(tokenRelay())
                 .build();
     }
+    */
+
+
+    /*@Bean
+    public RouterFunction<ServerResponse> gatewayRouterFunctionsLoadBalancer() {
+        return route("carService")
+                .route(path("/home/**"), builder -> builder
+                        .filter(lb("car-service"))
+                        .filter(tokenRelay())
+                        .build())
+                .and(route("bikeService")
+                        .route(path("/bike/**"), builder -> builder
+                                .filter(lb("bike-service"))
+                                .filter(tokenRelay())
+                                .build()))
+                .build();
+    }
+    */
 
     public static void main(String[] args) {
         SpringApplication.run(ApiGatewayApplication.class, args);
@@ -49,7 +67,7 @@ public class ApiGatewayApplication {
 record Car(String name) {
 }
 
-@FeignClient(name = "car-service", fallback = Fallback.class)
+@FeignClient(name = "carService", fallback = Fallback.class)
 @Component
 interface CarClient {
 
