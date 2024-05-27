@@ -12,8 +12,8 @@ import java.util.UUID;
 
 @Service
 public class PaymentServiceImpl implements PaymentServiceInterface {
-    private PaymentRepository repository;
-    private PaymentMapper mapper;
+    private final PaymentRepository repository;
+    private final PaymentMapper mapper;
 
     public PaymentServiceImpl(PaymentRepository repository, PaymentMapper mapper) {
         this.repository = repository;

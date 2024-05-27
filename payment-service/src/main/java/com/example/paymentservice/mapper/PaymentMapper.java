@@ -5,7 +5,7 @@ import com.example.paymentservice.dtos.PaymentDTOSave;
 import com.example.paymentservice.entities.PaymentEntity;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface PaymentMapper {
     PaymentDTO toDto(PaymentEntity entity);
     PaymentEntity toEntity(PaymentDTOSave dto);
