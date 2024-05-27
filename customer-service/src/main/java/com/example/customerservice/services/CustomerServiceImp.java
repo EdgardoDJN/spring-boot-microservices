@@ -3,6 +3,7 @@ package com.example.customerservice.services;
 import com.example.customerservice.dtos.CustomerServiceDTO;
 import com.example.customerservice.dtos.CustomerServiceDTOSave;
 import com.example.customerservice.entities.CustomerServiceEntity;
+import com.example.customerservice.exception.EntityNotFoundException;
 import com.example.customerservice.mapper.CustomerServiceMapper;
 import com.example.customerservice.repositories.CustomerServiceRepository;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class CustomerServiceImp implements CustomerService {
 
     @Override
     public CustomerServiceDTO findById(UUID id) {
-        CustomerServiceEntity entity = serviceRepository.findById(id).orElseThrow(RuntimeException::new);
+        CustomerServiceEntity entity = serviceRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("customerServiceEntity not found with id: " + id));
         return mapper.toDto(entity);
     }
 }

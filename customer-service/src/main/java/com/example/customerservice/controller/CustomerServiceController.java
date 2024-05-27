@@ -2,6 +2,7 @@ package com.example.customerservice.controller;
 
 import com.example.customerservice.dtos.CustomerServiceDTO;
 import com.example.customerservice.dtos.CustomerServiceDTOSave;
+import com.example.customerservice.services.CustomerService;
 import com.example.customerservice.services.CustomerServiceImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +13,9 @@ import java.util.UUID;
 @RestController
 public class CustomerServiceController {
 
-    private final CustomerServiceImp customerServiceSerImp;
+    private final CustomerService customerServiceSerImp;
 
-    public CustomerServiceController(CustomerServiceImp customerServiceSerImp) {
+    public CustomerServiceController(CustomerService customerServiceSerImp) {
         this.customerServiceSerImp = customerServiceSerImp;
     }
 
