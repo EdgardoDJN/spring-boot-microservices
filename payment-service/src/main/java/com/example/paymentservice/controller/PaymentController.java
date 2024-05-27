@@ -3,7 +3,7 @@ package com.example.paymentservice.controller;
 
 import com.example.paymentservice.dtos.PaymentDTO;
 import com.example.paymentservice.dtos.PaymentDTOSave;
-import com.example.paymentservice.services.PaymentServiceImpl;
+import com.example.paymentservice.services.PaymentServiceInterface;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,14 +12,14 @@ import java.util.UUID;
 
 @RestController
 public class PaymentController {
-    private final PaymentServiceImpl paymentService;
+    private final PaymentServiceInterface paymentService;
 
-    public PaymentController(PaymentServiceImpl paymentService) {
+    public PaymentController(PaymentServiceInterface paymentService) {
         this.paymentService = paymentService;
     }
 
-    @GetMapping("/getPaymentById")
-    public ResponseEntity<PaymentDTO> getPaymentById(@RequestParam UUID id){
+    @GetMapping("/getPaymentById/{id}")
+    public ResponseEntity<PaymentDTO> getPaymentById(@PathVariable UUID id){
         return new ResponseEntity<>(paymentService.getPaymentById(id), HttpStatus.OK);
     }
 

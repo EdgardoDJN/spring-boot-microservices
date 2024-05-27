@@ -23,6 +23,17 @@ services:
       POSTGRES_USER: postgres
     ports:
       - "5436:5432"
+
+  customerService:
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_DB: customerService
+      POSTGRES_PASSWORD: sample
+      POSTGRES_USER: postgres
+    ports:
+      - "5437:5432"
+
+
   rabbitmq:
     image: 'rabbitmq:3-management'
     ports:

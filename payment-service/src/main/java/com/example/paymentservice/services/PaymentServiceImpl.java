@@ -1,5 +1,6 @@
 package com.example.paymentservice.services;
 
+import com.example.paymentservice.Exception.EntityNotFoundException;
 import com.example.paymentservice.dtos.PaymentDTO;
 import com.example.paymentservice.dtos.PaymentDTOSave;
 import com.example.paymentservice.entities.PaymentEntity;
@@ -35,7 +36,7 @@ public class PaymentServiceImpl implements PaymentServiceInterface {
 
     @Override
     public PaymentDTO getPaymentById(UUID paymentId) {
-        PaymentEntity paymentEntity = repository.findById(paymentId).orElseThrow(RuntimeException::new);
+        PaymentEntity paymentEntity = repository.findById(paymentId).orElseThrow(() -> new EntityNotFoundException("paymentServiceEntity not found with id: " + paymentId));
         return mapper.toDto(paymentEntity);
     }
 

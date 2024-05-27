@@ -36,7 +36,7 @@ public class ApiGatewayApplication {
     public RouterFunction<ServerResponse> gatewayRouterFunctionsLoadBalancer() {
        return route("bookingService")
                 .route(path("/booking/**"), http())
-                   .route(path("/booking/{id}"), http())
+                .route(path("/booking/{id}"), http())
                 .filter(lb("bookingService"))
                 .filter(tokenRelay())
                .add(route("carInventory")
@@ -53,9 +53,14 @@ public class ApiGatewayApplication {
                        .filter(lb("paymentService"))
                        .filter(tokenRelay())
                        .build())
+               .add(route("customerService")
+                       .route(path("/saveCustomer/**"), http())
+                       .route(path("/getCustomer/**"), http())
+                       .filter(lb("customerService"))
+                       .filter(tokenRelay())
+                       .build())
                .build();
     }
-
     public static void main(String[] args) {
         SpringApplication.run(ApiGatewayApplication.class, args);
     }
