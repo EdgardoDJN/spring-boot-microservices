@@ -32,32 +32,23 @@ import static org.springframework.cloud.gateway.server.mvc.predicate.GatewayRequ
 @SpringBootApplication
 public class ApiGatewayApplication {
 
-    /*@Bean
+    @Bean
     public RouterFunction<ServerResponse> gatewayRouterFunctionsLoadBalancer() {
-        return route("carService")
-                .route(path("/home/**"), http())
-                .filter(lb("carService"))
+       return route("bookingService")
+                .route(path("/booking/**"), http())
+                   .route(path("/booking/{id}"), http())
+                .filter(lb("bookingService"))
                 .filter(tokenRelay())
-                .build();
+               .add(route("carInventory")
+                       .route(path("/list-available-car/**"), http())
+                       .route(path("/reserve/**"), http())
+                       .route(path("/return/**"), http())
+                       .route(path("/add-car/**"), http())
+                       .filter(lb("carInventory"))
+                       .filter(tokenRelay())
+                       .build())
+               .build();
     }
-    */
-
-
-    /*@Bean
-    public RouterFunction<ServerResponse> gatewayRouterFunctionsLoadBalancer() {
-        return route("carService")
-                .route(path("/home/**"), builder -> builder
-                        .filter(lb("car-service"))
-                        .filter(tokenRelay())
-                        .build())
-                .and(route("bikeService")
-                        .route(path("/bike/**"), builder -> builder
-                                .filter(lb("bike-service"))
-                                .filter(tokenRelay())
-                                .build()))
-                .build();
-    }
-    */
 
     public static void main(String[] args) {
         SpringApplication.run(ApiGatewayApplication.class, args);

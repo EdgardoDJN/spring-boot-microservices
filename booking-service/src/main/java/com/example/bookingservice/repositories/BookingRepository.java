@@ -11,5 +11,4 @@ import java.util.UUID;
 @Repository
 public interface BookingRepository extends JpaRepository<BookingEntity, UUID> {
     Optional<BookingEntity> getBookingEntitiesById(UUID id);
-    void addBooking(CreateBookingDto booking);
 }

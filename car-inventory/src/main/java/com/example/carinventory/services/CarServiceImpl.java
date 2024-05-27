@@ -27,7 +27,8 @@ public class CarServiceImpl implements  CarService{
         var car = carRepository.findById(carId)
                 .orElseThrow();
 
-        car.setAvailable(false);
+        car.setAvailable(true);
+        carRepository.save(car);
     }
 
     @Override
@@ -35,7 +36,8 @@ public class CarServiceImpl implements  CarService{
         var car = carRepository.findById(carId)
                 .orElseThrow();
 
-        car.setAvailable(true);
+        car.setAvailable(false);
+        carRepository.save(car);
     }
 
     @Override
@@ -44,4 +46,3 @@ public class CarServiceImpl implements  CarService{
         carRepository.save(carEntity);
     }
 }
-

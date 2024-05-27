@@ -24,19 +24,19 @@ public class CarController {
     }
 
     @PutMapping("/reserve")
-    public ResponseEntity reserveCar(UUID id){
+    public ResponseEntity<Void> reserveCar(UUID id){
         service.reserve(id);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping("/return")
-    public ResponseEntity returnCar(UUID id){
+    public ResponseEntity<Void> returnCar(UUID id){
         service.returnCar(id);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/add-car")
-    public ResponseEntity addCar(@RequestBody CreateCarDto car){
+    public ResponseEntity<Void> addCar(@RequestBody CreateCarDto car){
         service.addCar(car);
         return ResponseEntity.ok().build();
     }

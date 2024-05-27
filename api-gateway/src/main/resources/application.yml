@@ -4,24 +4,5 @@ spring:
       discovery:
         locator:
           enabled: true
-      mvc:
-        routes:
-          - id: carService
-            uri: lb://carService
-            predicates:
-              - Path=/api/**
-            filters:
-              - name: tokenRelay
-                args:
-                  tokenHeader: Authorization
-                  tokenHeaderPrefix: Bearer
-          - id: carInventory
-            uri: lb://carInventory
-            predicates:
-              - Path=/inventory/**
-            filters:
-              - name: tokenRelay
-                args:
-                  tokenHeader: Authorization
-                  tokenHeaderPrefix: Bearer
+
 
