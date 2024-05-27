@@ -47,6 +47,12 @@ public class ApiGatewayApplication {
                        .filter(lb("carInventory"))
                        .filter(tokenRelay())
                        .build())
+               .add(route("paymentService")
+                       .route(path("/getPaymentById/**"), http())
+                       .route(path("/processPayment/**"), http())
+                       .filter(lb("paymentService"))
+                       .filter(tokenRelay())
+                       .build())
                .build();
     }
 
